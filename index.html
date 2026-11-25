@@ -65,8 +65,8 @@ h2{font:400 24px/1.15 var(--display);margin:26px 0 12px}
 .sw{width:48px;height:48px;border-radius:50%;border:0;padding:0;background:var(--c);box-shadow:inset 0 0 0 1px rgba(58,28,16,.28)}
 .sw[aria-pressed=true]{box-shadow:inset 0 0 0 1px rgba(58,28,16,.28),0 0 0 3px var(--bg),0 0 0 6px var(--choc)}
 .sizes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
-.szlab{font-size:14px;font-weight:700;color:var(--soft);margin:2px 0 6px}
-.szlab + .sizes{margin-bottom:12px}
+.sizes + .sizes{margin-top:10px}
+.sz small.age{font-weight:700;font-size:12px;margin-bottom:2px}
 .sz{min-height:52px;padding:4px 0;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);font-weight:700;line-height:1.1}
 .sz small{display:block;font-weight:400;font-size:12px;color:var(--soft)}
 .buy{display:flex;gap:10px;margin-top:22px}
@@ -304,7 +304,7 @@ function renderOpts(id) {
     <div class="lab">Color <span>${esc(col.name)}</span></div>
     <div class="swatches">${CFG.colors.map(c => `<button type="button" class="sw" data-f="c-${c.id}" style="--c:${esc(c.hex)}" aria-label="${esc(c.name)}" title="${esc(c.name)}" aria-pressed="${c.id === p.color}" onclick="setOpt('${id}','color','${c.id}')"></button>`).join('')}</div>
     <div class="lab">Size <span>${p.size ? sizeName(p.size) + (big(p.size) ? ', adds $' + CFG.bigUpcharge : '') : 'Tap one'}</span></div>
-    ${[['Youth', CFG.sizes.filter(isYouth)], ['Adult', CFG.sizes.filter(s => !isYouth(s))]].filter(g => g[1].length).map(g => `<div class="szlab">${g[0]}</div><div class="sizes" role="group" aria-label="${g[0]} sizes">${g[1].map(s => `<button type="button" class="sz" data-f="s-${s}" aria-label="${sizeName(s)}" aria-pressed="${s === p.size}" onclick="setOpt('${id}','size','${s}')">${isYouth(s) ? s.slice(1) : s}${big(s) ? '<small>+$' + CFG.bigUpcharge + '</small>' : ''}</button>`).join('')}</div>`).join('')}
+    ${[['Youth', CFG.sizes.filter(isYouth)], ['Adult', CFG.sizes.filter(s => !isYouth(s))]].filter(g => g[1].length).map(g => `<div class="sizes" role="group" aria-label="${g[0]} sizes">${g[1].map(s => `<button type="button" class="sz" data-f="s-${s}" aria-label="${sizeName(s)}" aria-pressed="${s === p.size}" onclick="setOpt('${id}','size','${s}')"><small class="age">${g[0]}</small>${isYouth(s) ? s.slice(1) : s}${big(s) ? '<small>+$' + CFG.bigUpcharge + '</small>' : ''}</button>`).join('')}</div>`).join('')}
     <div class="buy">
       <div class="qty"><button type="button" data-f="q-" aria-label="One fewer" onclick="setQty('${id}',-1)">−</button><output aria-label="Quantity">${p.qty}</output><button type="button" data-f="q+" aria-label="One more" onclick="setQty('${id}',1)">+</button></div>
       <button type="button" class="add" data-f="add" ${p.size ? '' : 'disabled'} onclick="addToBag('${id}')">${p.size ? `<span>Add to order</span><span>${money(each(p.garment, p.size) * p.qty)}</span>` : '<span>Choose a size</span>'}</button>
