@@ -218,7 +218,7 @@ function showDone(r) {
     <div class="small">Your order number</div><div class="num">${r.id}</div>
     <div style="margin:10px 0">${r.lines.map(l => `${l.qty} × ${l.design} ${l.item} · ${l.color} · ${l.size}`).join('<br>')}</div>
     <div class="total" style="justify-content:center;gap:12px"><span>Total due</span><span>${money(r.total)}</span></div>
-    <div class="howbox"><b>How to pay: ${r.payment.name}</b><br>${r.payment.how}${r.paypalUrl ? `<a class="ppbtn" href="${r.paypalUrl}" target="_blank" rel="noopener">Pay ${money(r.total)} with PayPal</a><div class="small" style="margin-top:8px">In the PayPal note, type your order number: <b>${r.id}</b></div>` : ''}<br><br>Please pay by <b>${CFG.deadline}</b>. Your order is final once paid.</div>
+    <div class="howbox"><b>How to pay: ${r.payment.name}</b><br>${r.payment.how}${r.payUrl ? `<a class="ppbtn" style="background:${r.payment.color || '#4A2C1D'};color:${r.payment.textColor || '#fff'}" href="${r.payUrl}" target="_blank" rel="noopener">Pay ${money(r.total)} with ${r.payment.name}</a>${r.payment.name === 'Venmo' ? '' : `<div class="small" style="margin-top:8px">In the note, type your order number: <b>${r.id}</b></div>`}` : ''}<br><br>Please pay by <b>${CFG.deadline}</b>. Your order is final once paid.</div>
     <div class="small">Take a screenshot of this page for your records.</div>
     <button class="btn" style="margin-top:16px;width:100%" onclick="location.reload()">Place another order</button></div>`;
   window.scrollTo(0, 0);
