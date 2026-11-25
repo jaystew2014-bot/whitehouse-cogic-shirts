@@ -350,7 +350,7 @@ const LASTKEY = 'wcogic-shirt-last';
 let LAST = null;
 function showDone(r) {
   LAST = r; bag.length = 0;
-  $('shop').hidden = true; $('bar').classList.remove('show'); document.body.classList.remove('hasbar'); $('last').hidden = true; $('toast').classList.remove('show');
+  $('shop').hidden = true; $('bar').classList.remove('show'); document.body.classList.remove('hasbar'); $('last').hidden = true; $('hero').hidden = true; $('toast').classList.remove('show');
   try { localStorage.removeItem(STORE); localStorage.setItem(LASTKEY, JSON.stringify({ t: Date.now(), r })); } catch (e) {}
   const p = r.payment, w = $('doneWrap');
   const btn = r.payUrl ? `<a class="paybtn" style="background:${esc(p.color || '#3F1D10')};color:${esc(p.textColor || '#fff')}" href="${esc(r.payUrl)}" target="_blank" rel="noopener">Pay ${money(r.total)} with ${esc(p.name)}</a>${p.name === 'Venmo' ? '' : `<p class="small">In the payment note, type your order number: <b>${esc(r.id)}</b></p>`}` : '';
@@ -374,7 +374,7 @@ function changePay(b, name) {
   fetch(API, { method: 'POST', credentials: 'omit', body: JSON.stringify({ action: 'changePayment', id: LAST.id, phone: LAST.phone, payment: name }) })
     .then(r => r.json()).then(d => { if (!d.ok) return fail(d.error); LAST.payment = d.result.payment; LAST.payUrl = d.result.payUrl; showDone(LAST); }).catch(() => fail());
 }
-function newOrder() { $('doneWrap').hidden = true; $('shop').hidden = false; drawLast(); drawBag(); window.scrollTo(0, 0); }
+function newOrder() { $('doneWrap').hidden = true; $('shop').hidden = false; $('hero').hidden = !IMG.group; drawLast(); drawBag(); window.scrollTo(0, 0); }
 /* Lets someone come back later and find their order number and pay button */
 function drawLast() {
   try {
