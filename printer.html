@@ -154,6 +154,7 @@ function img(it) {
   const u = d && g && c && IMG[d.id + '_' + c.id + '_' + g.id];
   return u ? u.replace(/=w\d+$/, '') + '=w200' : '';
 }
+const sizeName = s => /^Y./.test(s) ? 'Youth ' + s.slice(1) : 'Adult ' + s;
 const sizeRank = s => { const i = CFG ? CFG.sizes.indexOf(s) : -1; return i < 0 ? 99 : i; };
 const count = o => o.items.reduce((s, i) => s + i.qty, 0);
 function toast(t) { const el = $('toast'); el.textContent = t; el.classList.add('show'); clearTimeout(el._h); el._h = setTimeout(() => el.classList.remove('show'), 2200); }
@@ -219,7 +220,7 @@ function card(o) {
   const isNew = !o.made && seenAt && o.time > seenAt;
   const items = o.items.slice().sort((a, b) => sizeRank(a.size) - sizeRank(b.size)).map(it => {
     const u = img(it);
-    return `<li>${u ? `<img src="${esc(u)}" alt="" loading="lazy">` : '<span></span>'}<div><b>${esc(it.design)} ${esc(it.item)}</b><span class="sub">${esc(it.color)}<span class="size">${esc(it.size)}</span></span></div><span class="qty">×${it.qty}</span></li>`;
+    return `<li>${u ? `<img src="${esc(u)}" alt="" loading="lazy">` : '<span></span>'}<div><b>${esc(it.design)} ${esc(it.item)}</b><span class="sub">${esc(it.color)}<span class="size">${esc(sizeName(it.size))}</span></span></div><span class="qty">×${it.qty}</span></li>`;
   }).join('');
   const act = o.made
     ? `<span class="madeline">✓ Completed ${esc(day(o.madeOn))}</span><button type="button" class="undo" onclick="mark('${esc(o.id)}',false,this)">Undo</button>`
@@ -247,7 +248,7 @@ function drawTotals(todo) {
   const order = CFG ? CFG.designs.map(d => d.name) : Object.keys(byDesign);
   $('list').innerHTML = order.filter(d => byDesign[d]).map(d => `<section class="tot"><h3>${esc(d)}</h3>${byDesign[d]
     .sort((a, b) => (a.it.item + a.it.color).localeCompare(b.it.item + b.it.color))
-    .map(g => { const u = img(g.it); return `<div class="row">${u ? `<img src="${esc(u)}" alt="" loading="lazy">` : '<span></span>'}<div><b>${esc(g.it.item)}, ${esc(g.it.color)}</b><div class="chips">${Object.keys(g.sizes).sort((a, b) => sizeRank(a) - sizeRank(b)).map(s => `<span class="chip">${esc(s)}<b>×${g.sizes[s]}</b></span>`).join('')}</div></div><span class="qty">${g.n}</span></div>`; }).join('')}</section>`).join('');
+    .map(g => { const u = img(g.it); return `<div class="row">${u ? `<img src="${esc(u)}" alt="" loading="lazy">` : '<span></span>'}<div><b>${esc(g.it.item)}, ${esc(g.it.color)}</b><div class="chips">${Object.keys(g.sizes).sort((a, b) => sizeRank(a) - sizeRank(b)).map(s => `<span class="chip">${esc(sizeName(s))}<b>×${g.sizes[s]}</b></span>`).join('')}</div></div><span class="qty">${g.n}</span></div>`; }).join('')}</section>`).join('');
 }
 
 function mark(id, made, btn) {
