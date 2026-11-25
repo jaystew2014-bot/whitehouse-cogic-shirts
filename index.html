@@ -2,19 +2,239 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Whitehouse COGIC Shirt Fundraiser</title>
-<meta name="description" content="Order Whitehouse COGIC shirts, long sleeves, crewnecks and hoodies. Every item supports our Media Team.">
+<meta name="description" content="Order Whitehouse COGIC short sleeves, long sleeves, crewnecks and hoodies. Every item supports our Media Team.">
 <meta property="og:title" content="Whitehouse COGIC Shirt Fundraiser">
 <meta property="og:description" content="Short sleeves, long sleeves, crewnecks and hoodies. Every item supports our Media Team.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  html, body { margin: 0; height: 100%; background: #F5EFE1; }
-  iframe { display: block; border: 0; width: 100%; height: 100vh; height: 100dvh; }
+:root{--cream:#F5EFE1;--paper:#FFFDF8;--brown:#4A2C1D;--brown2:#6B4330;--sage:#8FA57C;--sage-l:#E4EBDC;--maroon:#6E1626;--line:#E2D8C3;--muted:#7A6A5C}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--brown);font:16px/1.5 Inter,system-ui,sans-serif;padding-bottom:90px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.15}
+.wrap{max-width:980px;margin:0 auto;padding:0 18px}
+header{background:var(--brown);color:var(--cream);padding:34px 0 28px}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.8}
+header h1{font-size:clamp(30px,6vw,46px);margin:6px 0 8px}
+header p{margin:0;max-width:560px;opacity:.9}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.fact{background:rgba(245,239,225,.12);border:1px solid rgba(245,239,225,.25);padding:6px 12px;border-radius:999px;font-size:14px}
+.progress{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:-14px auto 26px;position:relative;box-shadow:0 6px 20px rgba(74,44,29,.08)}
+.prow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.big{font-family:Fraunces,serif;font-size:30px;font-weight:800}
+.bar{height:14px;background:var(--sage-l);border-radius:99px;overflow:hidden;margin:10px 0 6px}
+.bar>div{height:100%;background:linear-gradient(90deg,var(--sage),#6E8A5C);border-radius:99px;width:0;transition:width 1.2s ease}
+.small{font-size:14px;color:var(--muted)}
+.steps{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
+.step{font-size:13px;font-weight:600;background:var(--paper);border:1px solid var(--line);padding:5px 12px;border-radius:99px}
+.step b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--brown);color:var(--cream);margin-right:6px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.photo{background:#FCF1E6;aspect-ratio:1/1;max-height:440px;width:100%;display:flex;justify-content:center}
+.photo img{height:100%;object-fit:contain;transition:opacity .25s}
+.body{padding:16px 18px 20px}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sage-l);color:#4B6140;padding:3px 9px;border-radius:99px;margin-bottom:6px}
+.card h3{font-size:26px}
+.line{font-style:italic;color:var(--brown2);margin-bottom:12px}
+.label{font-size:13px;font-weight:600;margin:12px 0 6px}
+.label span{font-weight:400;color:var(--muted)}
+.swatches{display:flex;gap:10px}
+.sw{width:38px;height:38px;border-radius:50%;border:2px solid var(--paper);box-shadow:0 0 0 1px var(--line);cursor:pointer;padding:0}
+.sw.on{box-shadow:0 0 0 3px var(--brown)}
+.sizes{display:flex;flex-wrap:wrap;gap:6px}
+.seg{display:flex;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px;margin-bottom:4px}
+.seg button{flex:1;border:0;background:none;border-radius:9px;padding:8px 2px;font:600 12px Inter;color:var(--brown);cursor:pointer;line-height:1.2}
+.seg button small{display:block;font-weight:500;font-size:11px;opacity:.7}
+.seg button.on{background:var(--brown);color:var(--cream)}
+.seg button.on small{opacity:.85}
+.sz{min-width:46px;padding:8px 10px;border:1px solid var(--line);background:#fff;border-radius:10px;font:600 14px Inter;color:var(--brown);cursor:pointer}
+.sz.on{background:var(--brown);color:var(--cream);border-color:var(--brown)}
+.sz small{display:block;font-weight:500;font-size:10px;opacity:.75}
+.addrow{display:flex;gap:10px;align-items:center;margin-top:16px}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:#fff}
+.qty button{width:38px;height:44px;border:0;background:none;font-size:20px;color:var(--brown);cursor:pointer}
+.qty span{min-width:26px;text-align:center;font-weight:700}
+.btn{flex:1;height:46px;border:0;border-radius:12px;background:var(--brown);color:var(--cream);font:700 15px Inter;cursor:pointer}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.alt{background:var(--sage);color:#fff}
+section{margin:34px 0}
+section h2{font-size:28px;margin-bottom:12px}
+.bag{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:6px 18px}
+.item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item img{width:52px;height:52px;object-fit:cover;border-radius:8px;background:#FCF1E6}
+.item .t{flex:1}
+.item .t b{display:block}
+.rm{border:0;background:none;color:var(--maroon);font:600 13px Inter;cursor:pointer}
+.empty{padding:18px 0;color:var(--muted)}
+.total{display:flex;justify-content:space-between;font-family:Fraunces,serif;font-size:22px;font-weight:800;padding:14px 0 10px;border-top:2px solid var(--brown);margin-top:4px}
+.form{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+input,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:16px Inter;background:#fff;color:var(--brown)}
+.pay{display:grid;gap:8px}
+.po{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;cursor:pointer}
+.po.on{border-color:var(--brown);box-shadow:0 0 0 1px var(--brown)}
+.po input{width:auto;margin-top:4px}
+.po .how{font-size:13px;color:var(--muted)}
+.err{color:var(--maroon);font-weight:600;margin-top:10px;min-height:1px}
+.sticky{position:fixed;left:0;right:0;bottom:0;background:var(--brown);color:var(--cream);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;transform:translateY(110%);transition:transform .3s;z-index:9}
+.sticky.show{transform:none}
+.sticky button{background:var(--cream);color:var(--brown);border:0;border-radius:10px;padding:10px 16px;font:700 14px Inter;cursor:pointer}
+.done{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;text-align:center;max-width:620px;margin:30px auto}
+.done .num{font-family:Fraunces,serif;font-size:42px;font-weight:800;color:var(--maroon)}
+.howbox{background:var(--sage-l);border-radius:14px;padding:14px;text-align:left;margin:16px 0}
+.toast{position:fixed;top:16px;left:50%;transform:translate(-50%,-150%);background:var(--sage);color:#fff;padding:10px 18px;border-radius:99px;font-weight:600;transition:transform .3s;z-index:10}
+.toast.show{transform:translate(-50%,0)}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 </style>
 </head>
 <body>
-  <iframe src="https://script.google.com/macros/s/AKfycbwChjtAqh2tMSnl8ql0o_8FHQ-iBNXX91VmNLPBzDpZ0abSyrkkub4FC30XCs8IAXvy/exec"
-          title="Shirt order form" allow="clipboard-write"></iframe>
-  <noscript><p>Trouble loading? <a href="https://script.google.com/macros/s/AKfycbwChjtAqh2tMSnl8ql0o_8FHQ-iBNXX91VmNLPBzDpZ0abSyrkkub4FC30XCs8IAXvy/exec">Open the order page directly</a>.</p></noscript>
+<div class="toast" id="toast">Added to your order ✓</div>
+<header><div class="wrap">
+  <div class="eyebrow">Whitehouse Church of God in Christ · Media Team</div>
+  <h1>Shirt Fundraiser</h1>
+  <p id="cause"></p>
+  <div class="facts" id="facts"></div>
+</div></header>
+
+<main class="wrap" id="shop">
+  <div class="progress">
+    <div class="prow"><div><span class="big" id="pShirts">0</span> <span class="small" id="pGoal"></span></div>
+      <div class="small" id="pMoney"></div></div>
+    <div class="bar"><div id="pBar"></div></div>
+    <div class="small" id="pNote"></div>
+  </div>
+
+  <div class="steps"><div class="step"><b>1</b>Pick your items</div><div class="step"><b>2</b>Your info</div><div class="step"><b>3</b>Choose how to pay</div></div>
+  <div class="grid" id="products"><div class="empty" id="loading">Loading shirts…</div></div>
+
+  <section id="orderSec">
+    <h2>Your order</h2>
+    <div class="bag"><div id="bagList"></div><div class="total"><span>Total</span><span id="bagTotal">$0</span></div></div>
+  </section>
+
+  <section>
+    <h2>Your info</h2>
+    <div class="form">
+      <div class="f2">
+        <div><div class="label">Full name</div><input id="name" autocomplete="name"></div>
+        <div><div class="label">Phone <span>(we'll text you when shirts arrive)</span></div><input id="phone" type="tel" autocomplete="tel"></div>
+        <div><div class="label">Email <span>(optional)</span></div><input id="email" type="email" autocomplete="email"></div>
+      </div>
+      <div class="label" style="margin-top:18px">How will you pay?</div>
+      <div class="pay" id="pay"></div>
+      <div class="label">Notes <span>(optional)</span></div>
+      <textarea id="notes" rows="2" placeholder="Example: ordering for my grandson"></textarea>
+      <div class="err" id="err"></div>
+      <div class="addrow"><button class="btn alt" id="submit" onclick="submitOrder()">Place my order</button></div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" id="doneWrap" style="display:none"></div>
+<div class="sticky" id="sticky"><div id="stickyTxt"></div><button onclick="document.getElementById('orderSec').scrollIntoView({behavior:'smooth'})">Review order</button></div>
+<footer id="foot"></footer>
+
+<script>
+const API = 'https://script.google.com/macros/s/AKfycbwChjtAqh2tMSnl8ql0o_8FHQ-iBNXX91VmNLPBzDpZ0abSyrkkub4FC30XCs8IAXvy/exec';
+let CFG, IMG, STATS;
+const bag = [];
+const money = n => '$' + n.toLocaleString();
+const gar = id => CFG.garments.find(g => g.id === id);
+const each = (g, s) => gar(g).price + (CFG.bigSizes.includes(s) ? CFG.bigUpcharge : 0);
+const imgKey = (d, c, g) => d + '_' + c + '_' + g;
+const $ = id => document.getElementById(id);
+
+function init() {
+$('cause').textContent = CFG.cause;
+$('facts').innerHTML = [CFG.garments.map(g => `${g.name} $${g.price}`).join(' · '), 'Order by ' + CFG.deadline, 'Pick up at church']
+  .map(f => `<span class="fact">${f}</span>`).join('');
+$('foot').textContent = 'Questions? See ' + CFG.contact + '. ' + CFG.pickup;
+drawStats(); drawProducts(); drawBag(); drawPay();
+}
+
+function drawStats() {
+  $('pShirts').textContent = STATS.shirts;
+  $('pGoal').textContent = `of ${STATS.goal} items ordered`;
+  $('pMoney').innerHTML = `<b>${money(STATS.paid)}</b> collected · ${money(STATS.ordered)} ordered`;
+  $('pNote').textContent = STATS.shirts >= STATS.goal ? 'We hit our goal! Thank you, church family 🙏' :
+    `${STATS.goal - STATS.shirts} more to reach our goal · ${STATS.orders} order${STATS.orders === 1 ? '' : 's'} so far`;
+  setTimeout(() => $('pBar').style.width = Math.min(100, STATS.shirts / STATS.goal * 100) + '%', 100);
+}
+
+const pick = {};
+function drawProducts() {
+  $('products').innerHTML = CFG.designs.map(d => {
+    pick[d.id] = pick[d.id] || { garment: 'tee', color: CFG.colors[0].id, size: null, qty: 1 };
+    const p = pick[d.id], col = CFG.colors.find(c => c.id === p.color);
+    return `<div class="card">
+      <div class="photo"><img id="img-${d.id}" src="${IMG[imgKey(d.id, p.color, p.garment)] || ''}" alt="${d.name} ${gar(p.garment).name} in ${col.name}"></div>
+      <div class="body">
+        <span class="badge">${d.badge}</span><h3>${d.name}</h3><div class="line">“${d.line}”</div>
+        <div class="seg">${CFG.garments.map(g => `<button class="${g.id === p.garment ? 'on' : ''}" onclick="setGar('${d.id}','${g.id}')">${g.name}<small>$${g.price}</small></button>`).join('')}</div>
+        <div class="label">Color: <span>${col.name}</span></div>
+        <div class="swatches">${CFG.colors.map(c => `<button class="sw ${c.id === p.color ? 'on' : ''}" title="${c.name}" aria-label="${c.name}" style="background:${c.hex}" onclick="setColor('${d.id}','${c.id}')"></button>`).join('')}</div>
+        <div class="label">Size ${p.size ? '' : '<span>(tap one)</span>'}</div>
+        <div class="sizes">${CFG.sizes.map(s => `<button class="sz ${s === p.size ? 'on' : ''}" onclick="setSize('${d.id}','${s}')">${s}${CFG.bigSizes.includes(s) && CFG.bigUpcharge ? '<small>+$' + CFG.bigUpcharge + '</small>' : ''}</button>`).join('')}</div>
+        <div class="addrow">
+          <div class="qty"><button onclick="setQty('${d.id}',-1)" aria-label="less">−</button><span>${p.qty}</span><button onclick="setQty('${d.id}',1)" aria-label="more">+</button></div>
+          <button class="btn" ${p.size ? '' : 'disabled'} onclick="addToBag('${d.id}')">${p.size ? 'Add ' + p.qty + ' · ' + money(each(p.garment, p.size) * p.qty) : 'Pick a size'}</button>
+        </div>
+      </div></div>`;
+  }).join('');
+}
+function setColor(d, c) { pick[d].color = c; drawProducts(); }
+function setGar(d, g) { pick[d].garment = g; drawProducts(); }
+function setSize(d, s) { pick[d].size = s; drawProducts(); }
+function setQty(d, n) { pick[d].qty = Math.max(1, Math.min(25, pick[d].qty + n)); drawProducts(); }
+function addToBag(d) {
+  const p = pick[d];
+  const same = bag.find(b => b.design === d && b.garment === p.garment && b.color === p.color && b.size === p.size);
+  if (same) same.qty += p.qty; else bag.push({ design: d, garment: p.garment, color: p.color, size: p.size, qty: p.qty });
+  p.qty = 1; drawProducts(); drawBag();
+  const t = $('toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1400);
+}
+function removeItem(i) { bag.splice(i, 1); drawBag(); }
+function drawBag() {
+  const n = bag.reduce((s, b) => s + b.qty, 0), tot = bag.reduce((s, b) => s + each(b.garment, b.size) * b.qty, 0);
+  $('bagList').innerHTML = bag.length ? bag.map((b, i) => {
+    const d = CFG.designs.find(x => x.id === b.design), c = CFG.colors.find(x => x.id === b.color);
+    return `<div class="item"><img src="${IMG[imgKey(b.design, b.color, b.garment)] || ''}" alt=""><div class="t"><b>${b.qty} × ${d.name} ${gar(b.garment).name}</b>${c.name} · ${b.size}</div><div>${money(each(b.garment, b.size) * b.qty)}</div><button class="rm" onclick="removeItem(${i})">Remove</button></div>`;
+  }).join('') : '<div class="empty">Nothing yet. Pick a style, color and size above, then tap Add.</div>';
+  $('bagTotal').textContent = money(tot);
+  $('stickyTxt').innerHTML = `<b>${n} item${n === 1 ? '' : 's'}</b> · ${money(tot)}`;
+  $('sticky').classList.toggle('show', n > 0);
+}
+function drawPay() {
+  $('pay').innerHTML = CFG.payments.map((p, i) => `<label class="po" id="po${i}"><input type="radio" name="pay" value="${p.name}" onchange="document.querySelectorAll('.po').forEach(e=>e.classList.remove('on'));$('po${i}').classList.add('on')"><div><b>${p.name}</b><div class="how">${p.how}</div></div></label>`).join('');
+}
+function submitOrder() {
+  const pay = document.querySelector('input[name=pay]:checked');
+  const o = { name: $('name').value.trim(), phone: $('phone').value.trim(), email: $('email').value.trim(), notes: $('notes').value.trim(), payment: pay ? pay.value : '', items: bag };
+  const miss = !bag.length ? 'Add at least one item first.' : !o.name ? 'Please enter your name.' : !o.phone ? 'Please enter your phone number.' : !o.payment ? 'Please choose how you will pay.' : '';
+  if (miss) { $('err').textContent = miss; return; }
+  $('err').textContent = ''; const b = $('submit'); b.disabled = true; b.textContent = 'Placing your order…';
+  const fail = m => { $('err').textContent = m || 'Something went wrong. Please try again.'; b.disabled = false; b.textContent = 'Place my order'; };
+  fetch(API, { method: 'POST', credentials: 'omit', body: JSON.stringify(o) })
+    .then(r => r.json()).then(d => d.ok ? showDone(d.result) : fail(d.error)).catch(() => fail());
+}
+function showDone(r) {
+  STATS = r.stats;
+  $('shop').style.display = 'none'; $('sticky').classList.remove('show');
+  const w = $('doneWrap'); w.style.display = 'block';
+  w.innerHTML = `<div class="done"><div class="eyebrow">Thank you! 🙏</div><h2 style="margin:6px 0">Your order is in</h2>
+    <div class="small">Your order number</div><div class="num">${r.id}</div>
+    <div style="margin:10px 0">${r.lines.map(l => `${l.qty} × ${l.design} ${l.item} · ${l.color} · ${l.size}`).join('<br>')}</div>
+    <div class="total" style="justify-content:center;gap:12px"><span>Total due</span><span>${money(r.total)}</span></div>
+    <div class="howbox"><b>How to pay: ${r.payment.name}</b><br>${r.payment.how}<br><br>Please pay by <b>${CFG.deadline}</b>. Your order is final once paid.</div>
+    <div class="small">Take a screenshot of this page for your records.</div>
+    <button class="btn" style="margin-top:16px;width:100%" onclick="location.reload()">Place another order</button></div>`;
+  window.scrollTo(0, 0);
+}
+fetch(API + '?api=config', { credentials: 'omit' })
+  .then(r => r.json()).then(d => { CFG = d.cfg; IMG = d.img; STATS = d.stats; init(); })
+  .catch(() => { $('loading').innerHTML = 'Could not load the shirts. <a href="javascript:location.reload()">Try again</a>.'; });
+</script>
 </body>
 </html>
