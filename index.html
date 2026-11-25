@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Whitehouse COGIC Shirt Fundraiser</title>
-<meta name="description" content="Order Whitehouse COGIC short sleeves, long sleeves, crewnecks and hoodies. Every item supports our Media Team.">
-<meta property="og:title" content="Whitehouse COGIC Shirt Fundraiser">
-<meta property="og:description" content="Short sleeves, long sleeves, crewnecks and hoodies. Every item supports our Media Team.">
+<title>Whitehouse COGIC Shirt Sale</title>
+<meta name="description" content="Order Whitehouse COGIC short sleeves, long sleeves, crewnecks and hoodies.">
+<meta property="og:title" content="Whitehouse COGIC Shirt Sale">
+<meta property="og:description" content="Short sleeves, long sleeves, crewnecks and hoodies in Cream, Chocolate, Sage and Maroon.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -14,7 +14,7 @@
 body{margin:0;background:var(--cream);color:var(--brown);font:16px/1.5 Inter,system-ui,sans-serif;padding-bottom:90px}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.15}
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-header{background:var(--brown);color:var(--cream);padding:34px 0 28px}
+header{background:var(--brown);color:var(--cream);padding:34px 0 28px;margin-bottom:26px}
 .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.8}
 header h1{font-size:clamp(30px,6vw,46px);margin:6px 0 8px}
 header p{margin:0;max-width:560px;opacity:.9}
@@ -84,6 +84,7 @@ input,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radiu
 .done{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;text-align:center;max-width:620px;margin:30px auto}
 .done .num{font-family:Fraunces,serif;font-size:42px;font-weight:800;color:var(--maroon)}
 .howbox{background:var(--sage-l);border-radius:14px;padding:14px;text-align:left;margin:16px 0}
+.ppbtn{display:block;margin-top:12px;background:#FFC439;color:#111;text-align:center;font:700 16px Inter;padding:13px;border-radius:12px;text-decoration:none}
 .toast{position:fixed;top:16px;left:50%;transform:translate(-50%,-150%);background:var(--sage);color:#fff;padding:10px 18px;border-radius:99px;font-weight:600;transition:transform .3s;z-index:10}
 .toast.show{transform:translate(-50%,0)}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
@@ -92,20 +93,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <body>
 <div class="toast" id="toast">Added to your order ✓</div>
 <header><div class="wrap">
-  <div class="eyebrow">Whitehouse Church of God in Christ · Media Team</div>
-  <h1>Shirt Fundraiser</h1>
-  <p id="cause"></p>
+  <h1>Whitehouse COGIC Shirt Sale</h1>
   <div class="facts" id="facts"></div>
 </div></header>
 
 <main class="wrap" id="shop">
-  <div class="progress">
-    <div class="prow"><div><span class="big" id="pShirts">0</span> <span class="small" id="pGoal"></span></div>
-      <div class="small" id="pMoney"></div></div>
-    <div class="bar"><div id="pBar"></div></div>
-    <div class="small" id="pNote"></div>
-  </div>
-
   <div class="steps"><div class="step"><b>1</b>Pick your items</div><div class="step"><b>2</b>Your info</div><div class="step"><b>3</b>Choose how to pay</div></div>
   <div class="grid" id="products"><div class="empty" id="loading">Loading shirts…</div></div>
 
@@ -147,11 +139,10 @@ const imgKey = (d, c, g) => d + '_' + c + '_' + g;
 const $ = id => document.getElementById(id);
 
 function init() {
-$('cause').textContent = CFG.cause;
 $('facts').innerHTML = [CFG.garments.map(g => `${g.name} $${g.price}`).join(' · '), 'Order by ' + CFG.deadline, 'Pick up at church']
   .map(f => `<span class="fact">${f}</span>`).join('');
 $('foot').textContent = 'Questions? See ' + CFG.contact + '. ' + CFG.pickup;
-drawStats(); drawProducts(); drawBag(); drawPay();
+drawProducts(); drawBag(); drawPay();
 }
 
 function drawStats() {
@@ -227,7 +218,7 @@ function showDone(r) {
     <div class="small">Your order number</div><div class="num">${r.id}</div>
     <div style="margin:10px 0">${r.lines.map(l => `${l.qty} × ${l.design} ${l.item} · ${l.color} · ${l.size}`).join('<br>')}</div>
     <div class="total" style="justify-content:center;gap:12px"><span>Total due</span><span>${money(r.total)}</span></div>
-    <div class="howbox"><b>How to pay: ${r.payment.name}</b><br>${r.payment.how}<br><br>Please pay by <b>${CFG.deadline}</b>. Your order is final once paid.</div>
+    <div class="howbox"><b>How to pay: ${r.payment.name}</b><br>${r.payment.how}${r.paypalUrl ? `<a class="ppbtn" href="${r.paypalUrl}" target="_blank" rel="noopener">Pay ${money(r.total)} with PayPal</a><div class="small" style="margin-top:8px">In the PayPal note, type your order number: <b>${r.id}</b></div>` : ''}<br><br>Please pay by <b>${CFG.deadline}</b>. Your order is final once paid.</div>
     <div class="small">Take a screenshot of this page for your records.</div>
     <button class="btn" style="margin-top:16px;width:100%" onclick="location.reload()">Place another order</button></div>`;
   window.scrollTo(0, 0);
