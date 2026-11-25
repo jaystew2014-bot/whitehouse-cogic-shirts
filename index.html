@@ -33,6 +33,7 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .top{background:var(--choc);color:var(--bg);padding:22px 0 20px}
 .top h1{font:400 clamp(28px,7.4vw,48px)/1.08 var(--display);margin:0;text-wrap:balance}
 .top p{margin:8px 0 0;font-size:16px;opacity:.92}
+.top .noextra{margin-top:4px;font-weight:700;opacity:1}
 
 h2{font:400 24px/1.15 var(--display);margin:26px 0 12px}
 
@@ -164,6 +165,7 @@ footer{color:var(--soft);font-size:15px;padding:30px 0 26px}
 <header class="top"><div class="wrap">
   <h1>Whitehouse COGIC Shirt Sale</h1>
   <p id="facts"></p>
+  <p class="noextra">No extra shirts will be ordered.</p>
 </div></header>
 
 <figure class="hero" id="hero" hidden><img id="heroImg" width="1600" height="900" alt="Church members wearing the Whitehouse and Emmanuel shirts, long sleeves, crewnecks and hoodies in cream, chocolate, sage and maroon"></figure>
@@ -201,6 +203,7 @@ footer{color:var(--soft);font-size:15px;padding:30px 0 26px}
         <div class="pays" id="pay"></div>
         <label class="f" for="notes">Notes <span>Optional</span></label>
         <textarea id="notes" rows="2" placeholder="Example: ordering for my grandson"></textarea>
+        <p class="saved"><b>No extra shirts will be ordered.</b> Order by the deadline to get yours.</p>
         <div class="err" id="err" role="alert"></div>
         <button class="place" id="submit" type="button" onclick="submitOrder()">Place my order</button>
       </div>
