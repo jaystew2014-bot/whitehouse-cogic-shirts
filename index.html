@@ -128,6 +128,7 @@ textarea{resize:vertical}
 .pay.alt:disabled{opacity:.6}
 #chg{text-align:left;margin-top:6px}
 
+.layout > .done{grid-column:1/-1}
 footer{color:var(--soft);font-size:15px;padding:30px 0 26px}
 .loading{padding:40px 0;color:var(--soft)}
 .loading button{margin-top:10px;border:1.5px solid var(--choc);border-radius:10px;background:none;padding:10px 16px;font-weight:700}
@@ -220,6 +221,11 @@ function init() {
   if (IMG.group) { const hi = $('heroImg'); hi.sizes = '(min-width:1180px) 1144px, 100vw'; hi.srcset = `${src('group', 800)} 800w, ${src('group', 1600)} 1600w`; hi.src = src('group', 1600); $('hero').hidden = false; }
   $('facts').textContent = 'Order by ' + CFG.deadline + '. Pick up at church.';
   $('foot').textContent = 'Questions? See ' + CFG.contact + '. ' + CFG.pickup;
+  if (CFG.closed) {
+    $('facts').textContent = 'Orders are closed.';
+    $('shop').innerHTML = `<div class="done"><h2>Orders are closed</h2><p>The last day to order was ${esc(CFG.deadline)}.</p><p class="small">Questions? See ${esc(CFG.contact)}.</p></div>`;
+    drawLast(); return;
+  }
   $('products').innerHTML = CFG.designs.map(d => {
     pick[d.id] = { garment: CFG.garments[0].id, color: CFG.colors[0].id, size: null, qty: 1 };
     return `<article class="prod">
@@ -363,7 +369,7 @@ function showDone(r) {
     <button type="button" class="again" id="chgBtn" onclick="showChange()">Change how I pay</button>
     <div id="chg" hidden><div class="lab">Pick a different way to pay</div><div class="pays">${CFG.payments.filter(x => x.name !== p.name).map(x => `<button type="button" class="pay alt" onclick="changePay(this,'${esc(x.name)}')"><b>${esc(x.name)}</b></button>`).join('')}</div><div class="err" id="chgErr" role="alert"></div></div>
     <div class="small" style="margin-top:18px">Take a screenshot of this page for your records.</div>
-    <button type="button" class="again" onclick="newOrder()">Place another order</button></div>`;
+    ${CFG.closed ? '' : '<button type="button" class="again" onclick="newOrder()">Place another order</button>'}</div>`;
   w.hidden = false; window.scrollTo(0, 0);
 }
 function showChange() { $('chg').hidden = false; $('chgBtn').hidden = true; }
