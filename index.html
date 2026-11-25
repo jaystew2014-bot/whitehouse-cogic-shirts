@@ -2,230 +2,393 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Whitehouse COGIC Shirt Sale</title>
 <meta name="description" content="Order Whitehouse COGIC short sleeves, long sleeves, crewnecks and hoodies.">
 <meta property="og:title" content="Whitehouse COGIC Shirt Sale">
 <meta property="og:description" content="Short sleeves, long sleeves, crewnecks and hoodies in Cream, Chocolate, Sage and Maroon.">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#3F1D10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://lh3.googleusercontent.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caprasimo&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#F5EFE1;--paper:#FFFDF8;--brown:#4A2C1D;--brown2:#6B4330;--sage:#8FA57C;--sage-l:#E4EBDC;--maroon:#6E1626;--line:#E2D8C3;--muted:#7A6A5C}
+:root{
+  --bg:#FCF2E9; --paper:#FFFBF6; --ink:#3A1C10; --soft:#6F5244; --line:#E6D5C3;
+  --choc:#3F1D10; --maroon:#6E1626; --maroon-d:#571020; --sage:#A3B97E; --sage-wash:#EDF2E2;
+  --display:'Caprasimo',Georgia,'Times New Roman',serif;
+  --body:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--cream);color:var(--brown);font:16px/1.5 Inter,system-ui,sans-serif;padding-bottom:90px}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.15}
-.wrap{max-width:980px;margin:0 auto;padding:0 18px}
-header{background:var(--brown);color:var(--cream);padding:34px 0 28px;margin-bottom:26px}
-.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.8}
-header h1{font-size:clamp(30px,6vw,46px);margin:6px 0 8px}
-header p{margin:0;max-width:560px;opacity:.9}
-.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.fact{background:rgba(245,239,225,.12);border:1px solid rgba(245,239,225,.25);padding:6px 12px;border-radius:999px;font-size:14px}
-.progress{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:-14px auto 26px;position:relative;box-shadow:0 6px 20px rgba(74,44,29,.08)}
-.prow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.big{font-family:Fraunces,serif;font-size:30px;font-weight:800}
-.bar{height:14px;background:var(--sage-l);border-radius:99px;overflow:hidden;margin:10px 0 6px}
-.bar>div{height:100%;background:linear-gradient(90deg,var(--sage),#6E8A5C);border-radius:99px;width:0;transition:width 1.2s ease}
-.small{font-size:14px;color:var(--muted)}
-.steps{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
-.step{font-size:13px;font-weight:600;background:var(--paper);border:1px solid var(--line);padding:5px 12px;border-radius:99px}
-.step b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--brown);color:var(--cream);margin-right:6px;font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.photo{background:#FCF1E6;aspect-ratio:1/1;max-height:440px;width:100%;display:flex;justify-content:center}
-.photo img{height:100%;object-fit:contain;transition:opacity .25s}
-.body{padding:16px 18px 20px}
-.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--sage-l);color:#4B6140;padding:3px 9px;border-radius:99px;margin-bottom:6px}
-.card h3{font-size:26px}
-.line{font-style:italic;color:var(--brown2);margin-bottom:12px}
-.label{font-size:13px;font-weight:600;margin:12px 0 6px}
-.label span{font-weight:400;color:var(--muted)}
-.swatches{display:flex;gap:10px}
-.sw{width:38px;height:38px;border-radius:50%;border:2px solid var(--paper);box-shadow:0 0 0 1px var(--line);cursor:pointer;padding:0}
-.sw.on{box-shadow:0 0 0 3px var(--brown)}
-.sizes{display:flex;flex-wrap:wrap;gap:6px}
-.seg{display:flex;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px;margin-bottom:4px}
-.seg button{flex:1;border:0;background:none;border-radius:9px;padding:8px 2px;font:600 12px Inter;color:var(--brown);cursor:pointer;line-height:1.2}
-.seg button small{display:block;font-weight:500;font-size:11px;opacity:.7}
-.seg button.on{background:var(--brown);color:var(--cream)}
-.seg button.on small{opacity:.85}
-.sz{min-width:46px;padding:8px 10px;border:1px solid var(--line);background:#fff;border-radius:10px;font:600 14px Inter;color:var(--brown);cursor:pointer}
-.sz.on{background:var(--brown);color:var(--cream);border-color:var(--brown)}
-.sz small{display:block;font-weight:500;font-size:10px;opacity:.75}
-.addrow{display:flex;gap:10px;align-items:center;margin-top:16px}
-.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:#fff}
-.qty button{width:38px;height:44px;border:0;background:none;font-size:20px;color:var(--brown);cursor:pointer}
-.qty span{min-width:26px;text-align:center;font-weight:700}
-.btn{flex:1;height:46px;border:0;border-radius:12px;background:var(--brown);color:var(--cream);font:700 15px Inter;cursor:pointer}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.btn.alt{background:var(--sage);color:#fff}
-section{margin:34px 0}
-section h2{font-size:28px;margin-bottom:12px}
-.bag{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:6px 18px}
-.item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.item:last-child{border-bottom:0}
-.item img{width:52px;height:52px;object-fit:cover;border-radius:8px;background:#FCF1E6}
-.item .t{flex:1}
-.item .t b{display:block}
-.rm{border:0;background:none;color:var(--maroon);font:600 13px Inter;cursor:pointer}
-.empty{padding:18px 0;color:var(--muted)}
-.total{display:flex;justify-content:space-between;font-family:Fraunces,serif;font-size:22px;font-weight:800;padding:14px 0 10px;border-top:2px solid var(--brown);margin-top:4px}
-.form{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
-.f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-input,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:16px Inter;background:#fff;color:var(--brown)}
-.pay{display:grid;gap:8px}
-.po{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;cursor:pointer}
-.po.on{border-color:var(--brown);box-shadow:0 0 0 1px var(--brown)}
-.po input{width:auto;margin-top:4px}
-.po .how{font-size:13px;color:var(--muted)}
-.err{color:var(--maroon);font-weight:600;margin-top:10px;min-height:1px}
-.sticky{position:fixed;left:0;right:0;bottom:0;background:var(--brown);color:var(--cream);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;transform:translateY(110%);transition:transform .3s;z-index:9}
-.sticky.show{transform:none}
-.sticky button{background:var(--cream);color:var(--brown);border:0;border-radius:10px;padding:10px 16px;font:700 14px Inter;cursor:pointer}
-.done{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;text-align:center;max-width:620px;margin:30px auto}
-.done .num{font-family:Fraunces,serif;font-size:42px;font-weight:800;color:var(--maroon)}
-.howbox{background:var(--sage-l);border-radius:14px;padding:14px;text-align:left;margin:16px 0}
-.ppbtn{display:block;margin-top:12px;background:#FFC439;color:#111;text-align:center;font:700 16px Inter;padding:13px;border-radius:12px;text-decoration:none}
-.toast{position:fixed;top:16px;left:50%;transform:translate(-50%,-150%);background:var(--sage);color:#fff;padding:10px 18px;border-radius:99px;font-weight:600;transition:transform .3s;z-index:10}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 var(--body)}
+body.hasbar{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--maroon);outline-offset:2px}
+[hidden]{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+
+/* Header */
+.top{background:var(--choc);color:var(--bg);padding:22px 0 20px}
+.top h1{font:400 clamp(28px,7.4vw,48px)/1.08 var(--display);margin:0;text-wrap:balance}
+.top p{margin:8px 0 0;font-size:16px;opacity:.92}
+
+h2{font:400 24px/1.15 var(--display);margin:26px 0 12px}
+
+/* Product */
+.prod{padding:0 0 28px;border-bottom:1px solid var(--line)}
+.prod + .prod{padding-top:8px}
+.prod:last-child{border-bottom:0}
+.photo{margin:0 -18px}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:1;transition:opacity .18s}
+.photo img.swap{opacity:.3}
+.opts h3{font:400 36px/1 var(--display);margin:0}
+.tag{margin:6px 0 4px;color:var(--soft);font-style:italic}
+.lab{font-weight:700;font-size:15px;margin:18px 0 8px}
+.lab span{font-weight:400;color:var(--soft);margin-left:6px}
+.styles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chip{display:flex;flex-direction:column;justify-content:center;gap:1px;min-height:60px;padding:8px 14px;line-height:1.25;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);text-align:left}
+.chip b{font-weight:700}
+.chip span{color:var(--soft);font-size:15px}
+.chip[aria-pressed=true],.sz[aria-pressed=true]{background:var(--choc);border-color:var(--choc);color:var(--bg)}
+.chip[aria-pressed=true] span,.sz[aria-pressed=true] small{color:inherit;opacity:.85}
+.swatches{display:flex;gap:14px;padding:4px 2px}
+.sw{width:48px;height:48px;border-radius:50%;border:0;padding:0;background:var(--c);box-shadow:inset 0 0 0 1px rgba(58,28,16,.28)}
+.sw[aria-pressed=true]{box-shadow:inset 0 0 0 1px rgba(58,28,16,.28),0 0 0 3px var(--bg),0 0 0 6px var(--choc)}
+.sizes{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.sz{min-height:52px;padding:4px 0;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);font-weight:700;line-height:1.1}
+.sz small{display:block;font-weight:400;font-size:12px;color:var(--soft)}
+.buy{display:flex;gap:10px;margin-top:22px}
+.qty{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;background:var(--paper)}
+.qty button{width:46px;height:52px;border:0;border-radius:12px;background:none;font-size:22px;line-height:1}
+.qty output{min-width:24px;text-align:center;font-weight:700}
+.add{flex:1;display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:56px;padding:0 18px;border:0;border-radius:12px;background:var(--maroon);color:#fff;font-weight:700}
+.add:hover{background:var(--maroon-d)}
+.add:disabled{background:var(--line);color:var(--soft);cursor:not-allowed;justify-content:center}
+
+/* Order and form */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:6px 18px 20px}
+.item{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+.item img{display:block;width:56px;height:56px;border-radius:10px;background:var(--bg)}
+.item b{display:block;line-height:1.25}
+.item .sub{color:var(--soft);font-size:15px}
+.item .amt{text-align:right;font-weight:700}
+.rm{border:0;background:none;padding:8px 4px;margin-left:8px;color:var(--maroon);font-size:15px;text-decoration:underline}
+.mini{display:flex;align-items:center;gap:4px;margin-top:8px}
+.mini .q{width:40px;height:40px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font-size:19px;line-height:1}
+.mini .q:disabled{opacity:.4;cursor:not-allowed}
+.mini output{min-width:28px;text-align:center;font-weight:700}
+.saved{margin:12px 0 0;color:var(--soft);font-size:15px}
+.more{width:100%;min-height:50px;margin-top:14px;border:1.5px solid var(--choc);border-radius:12px;background:none;font-weight:700}
+.empty{margin:0;padding:16px 0 4px;color:var(--soft)}
+.total{display:flex;justify-content:space-between;align-items:baseline;font:400 26px/1 var(--display);padding-top:18px}
+label.f{display:block;font-weight:700;font-size:15px;margin:14px 0 6px}
+label.f span{font-weight:400;color:var(--soft)}
+input[type=text],input[type=tel],input[type=email],textarea{display:block;width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;font-size:17px}
+textarea{resize:vertical}
+.pays{display:grid;gap:8px}
+.pay{display:block;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:13px 14px;cursor:pointer}
+.pay input{width:18px;height:18px;margin:0 10px 0 0;vertical-align:-3px;accent-color:var(--maroon)}
+.pay p{display:none;margin:8px 0 0;color:var(--soft);font-size:15px}
+.pay.on{border-color:var(--choc);box-shadow:0 0 0 1px var(--choc)}
+.pay.on p{display:block}
+.err{color:var(--maroon);font-weight:700;margin-top:14px}
+.err:empty{display:none}
+.place{width:100%;min-height:58px;margin-top:16px;border:0;border-radius:12px;background:var(--maroon);color:#fff;font-weight:700;font-size:18px}
+.place:hover{background:var(--maroon-d)}
+.place:disabled{opacity:.6;cursor:wait}
+
+/* Phone order bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:var(--choc);color:var(--bg);transform:translateY(110%);transition:transform .25s}
+.bar.show{transform:none}
+.bar b{font-size:18px}
+.bar button{border:0;border-radius:10px;background:var(--bg);color:var(--ink);font-weight:700;padding:12px 16px}
+.toast{position:fixed;top:14px;left:50%;z-index:6;transform:translate(-50%,-160%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:99px;font-weight:700;white-space:nowrap;transition:transform .25s}
 .toast.show{transform:translate(-50%,0)}
-footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+
+/* Confirmation */
+.done{max-width:560px;margin:28px auto;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px 22px;text-align:center}
+.done h2{margin:0 0 14px;font-size:28px}
+.done .small{color:var(--soft);font-size:15px}
+.num{font:400 54px/1 var(--display);color:var(--maroon);margin:6px 0 16px}
+.lines{margin:0 0 4px}
+.due{display:flex;justify-content:center;gap:14px;align-items:baseline;font:400 26px/1 var(--display);margin:18px 0}
+.howbox{background:var(--sage-wash);border-radius:14px;padding:16px;text-align:left;margin:0 0 16px}
+.howbox p{margin:6px 0 0}
+.paybtn{display:block;margin-top:14px;padding:15px;border-radius:12px;text-align:center;font-weight:700;font-size:18px;text-decoration:none}
+.again{width:100%;min-height:52px;margin-top:18px;border:1.5px solid var(--choc);border-radius:12px;background:none;font-weight:700}
+
+.hero{margin:0;background:#EFE3D3}
+.hero img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+@media (min-width:960px){.hero{max-width:1180px;margin:28px auto 0;padding:0 18px;background:none}.hero img{border-radius:18px;aspect-ratio:12/5;object-position:50% 15%}}
+.last{margin:16px 0 0;padding:12px 16px;border-radius:12px;background:var(--sage-wash)}
+.last button{border:0;background:none;padding:0;margin-left:6px;color:var(--maroon);font-weight:700;text-decoration:underline}
+.pay.alt{width:100%;text-align:left}
+.pay.alt:disabled{opacity:.6}
+#chg{text-align:left;margin-top:6px}
+
+footer{color:var(--soft);font-size:15px;padding:30px 0 26px}
+.loading{padding:40px 0;color:var(--soft)}
+.loading button{margin-top:10px;border:1.5px solid var(--choc);border-radius:10px;background:none;padding:10px 16px;font-weight:700}
+
+@media (min-width:640px){
+  .prod,.prod + .prod{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:start;padding:22px 0 30px}
+  .prod:first-child{padding-top:4px}
+  .photo{margin:0}
+  .opts{padding-top:14px}
+}
+@media (min-width:960px){
+  .top{padding:30px 0 26px}
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 392px;gap:48px;align-items:start}
+  .side{position:sticky;top:0;max-height:100vh;overflow:auto;padding-bottom:20px;scrollbar-width:thin}
+  .bar,.more{display:none}
+  body.hasbar{padding-bottom:0}
+  .opts h3{font-size:40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="toast" id="toast">Added to your order ✓</div>
-<header><div class="wrap">
+<div class="toast" id="toast" role="status">Added to your order</div>
+
+<header class="top"><div class="wrap">
   <h1>Whitehouse COGIC Shirt Sale</h1>
-  <div class="facts" id="facts"></div>
+  <p id="facts"></p>
 </div></header>
 
-<main class="wrap" id="shop">
-  <div class="steps"><div class="step"><b>1</b>Pick your items</div><div class="step"><b>2</b>Your info</div><div class="step"><b>3</b>Choose how to pay</div></div>
-  <div class="grid" id="products"><div class="empty" id="loading">Loading shirts…</div></div>
+<figure class="hero" id="hero" hidden><img id="heroImg" width="1600" height="900" alt="Church members wearing the Whitehouse and Emmanuel shirts, long sleeves, crewnecks and hoodies in cream, chocolate, sage and maroon"></figure>
 
-  <section id="orderSec">
-    <h2>Your order</h2>
-    <div class="bag"><div id="bagList"></div><div class="total"><span>Total</span><span id="bagTotal">$0</span></div></div>
-  </section>
+<div class="wrap"><p class="last" id="last" hidden></p></div>
 
-  <section>
-    <h2>Your info</h2>
-    <div class="form">
-      <div class="f2">
-        <div><div class="label">Full name</div><input id="name" autocomplete="name"></div>
-        <div><div class="label">Phone <span>(we'll text you when shirts arrive)</span></div><input id="phone" type="tel" autocomplete="tel"></div>
-        <div><div class="label">Email <span>(optional)</span></div><input id="email" type="email" autocomplete="email"></div>
-      </div>
-      <div class="label" style="margin-top:18px">How will you pay?</div>
-      <div class="pay" id="pay"></div>
-      <div class="label">Notes <span>(optional)</span></div>
-      <textarea id="notes" rows="2" placeholder="Example: ordering for my grandson"></textarea>
-      <div class="err" id="err"></div>
-      <div class="addrow"><button class="btn alt" id="submit" onclick="submitOrder()">Place my order</button></div>
+<div class="wrap layout" id="shop">
+  <main>
+    <h2>1. Pick your shirts</h2>
+    <div id="products"><p class="loading" id="loading">Loading the shirts…</p></div>
+  </main>
+
+  <aside class="side">
+    <h2 id="orderSec">2. Your order</h2>
+    <div class="panel">
+      <div id="bagList"></div>
+      <div class="total"><span>Total</span><span id="bagTotal">$0</span></div>
+      <p class="saved" id="saved" hidden>Saved on this device. You can close this page and finish later.</p>
+      <button type="button" class="more" id="more" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Add or change shirts</button>
     </div>
-  </section>
-</main>
 
-<div class="wrap" id="doneWrap" style="display:none"></div>
-<div class="sticky" id="sticky"><div id="stickyTxt"></div><button onclick="document.getElementById('orderSec').scrollIntoView({behavior:'smooth'})">Review order</button></div>
-<footer id="foot"></footer>
+    <h2>3. Your info and payment</h2>
+    <div class="panel">
+      <label class="f" for="name">Full name</label>
+      <input id="name" type="text" autocomplete="name">
+      <label class="f" for="phone">Phone</label>
+      <input id="phone" type="tel" inputmode="tel" autocomplete="tel">
+      <label class="f" for="email">Email <span>Optional</span></label>
+      <input id="email" type="email" autocomplete="email">
+      <div class="lab">How will you pay?</div>
+      <div class="pays" id="pay"></div>
+      <label class="f" for="notes">Notes <span>Optional</span></label>
+      <textarea id="notes" rows="2" placeholder="Example: ordering for my grandson"></textarea>
+      <div class="err" id="err" role="alert"></div>
+      <button class="place" id="submit" type="button" onclick="submitOrder()">Place my order</button>
+    </div>
+  </aside>
+</div>
+
+<div class="wrap" id="doneWrap" hidden></div>
+
+<div class="bar" id="bar">
+  <div id="barTxt"></div>
+  <button type="button" onclick="document.getElementById('orderSec').scrollIntoView({behavior:'smooth'})">Review order</button>
+</div>
+
+<footer><div class="wrap" id="foot"></div></footer>
 
 <script>
 const API = 'https://script.google.com/macros/s/AKfycbwChjtAqh2tMSnl8ql0o_8FHQ-iBNXX91VmNLPBzDpZ0abSyrkkub4FC30XCs8IAXvy/exec';
-let CFG, IMG, STATS;
-const bag = [];
+let CFG, IMG;
+const bag = [], pick = {};
+const $ = id => document.getElementById(id);
 const money = n => '$' + n.toLocaleString();
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const gar = id => CFG.garments.find(g => g.id === id);
 const each = (g, s) => gar(g).price + (CFG.bigSizes.includes(s) ? CFG.bigUpcharge : 0);
-const imgKey = (d, c, g) => d + '_' + c + '_' + g;
-const $ = id => document.getElementById(id);
+const key = (d, c, g) => d + '_' + c + '_' + g;
+const src = (k, w) => IMG[k] ? IMG[k].replace(/=w\d+$/, '') + '=w' + w : '';
+const SIZES_ATTR = '(min-width:960px) 360px, (min-width:640px) 46vw, 100vw';
 
 function init() {
-$('facts').innerHTML = [CFG.garments.map(g => `${g.name} $${g.price}`).join(' · '), 'Order by ' + CFG.deadline, 'Pick up at church']
-  .map(f => `<span class="fact">${f}</span>`).join('');
-$('foot').textContent = 'Questions? See ' + CFG.contact + '. ' + CFG.pickup;
-drawProducts(); drawBag(); drawPay();
-}
-
-function drawStats() {
-  $('pShirts').textContent = STATS.shirts;
-  $('pGoal').textContent = `of ${STATS.goal} items ordered`;
-  $('pMoney').innerHTML = `<b>${money(STATS.paid)}</b> collected · ${money(STATS.ordered)} ordered`;
-  $('pNote').textContent = STATS.shirts >= STATS.goal ? 'We hit our goal! Thank you, church family 🙏' :
-    `${STATS.goal - STATS.shirts} more to reach our goal · ${STATS.orders} order${STATS.orders === 1 ? '' : 's'} so far`;
-  setTimeout(() => $('pBar').style.width = Math.min(100, STATS.shirts / STATS.goal * 100) + '%', 100);
-}
-
-const pick = {};
-function drawProducts() {
+  if (IMG.group) { const hi = $('heroImg'); hi.sizes = '(min-width:1180px) 1144px, 100vw'; hi.srcset = `${src('group', 800)} 800w, ${src('group', 1600)} 1600w`; hi.src = src('group', 1600); $('hero').hidden = false; }
+  $('facts').textContent = 'Order by ' + CFG.deadline + '. Pick up at church.';
+  $('foot').textContent = 'Questions? See ' + CFG.contact + '. ' + CFG.pickup;
   $('products').innerHTML = CFG.designs.map(d => {
-    pick[d.id] = pick[d.id] || { garment: 'tee', color: CFG.colors[0].id, size: null, qty: 1 };
-    const p = pick[d.id], col = CFG.colors.find(c => c.id === p.color);
-    return `<div class="card">
-      <div class="photo"><img id="img-${d.id}" src="${IMG[imgKey(d.id, p.color, p.garment)] || ''}" alt="${d.name} ${gar(p.garment).name} in ${col.name}"></div>
-      <div class="body">
-        <span class="badge">${d.badge}</span><h3>${d.name}</h3><div class="line">“${d.line}”</div>
-        <div class="seg">${CFG.garments.map(g => `<button class="${g.id === p.garment ? 'on' : ''}" onclick="setGar('${d.id}','${g.id}')">${g.name}<small>$${g.price}</small></button>`).join('')}</div>
-        <div class="label">Color: <span>${col.name}</span></div>
-        <div class="swatches">${CFG.colors.map(c => `<button class="sw ${c.id === p.color ? 'on' : ''}" title="${c.name}" aria-label="${c.name}" style="background:${c.hex}" onclick="setColor('${d.id}','${c.id}')"></button>`).join('')}</div>
-        <div class="label">Size ${p.size ? '' : '<span>(tap one)</span>'}</div>
-        <div class="sizes">${CFG.sizes.map(s => `<button class="sz ${s === p.size ? 'on' : ''}" onclick="setSize('${d.id}','${s}')">${s}${CFG.bigSizes.includes(s) && CFG.bigUpcharge ? '<small>+$' + CFG.bigUpcharge + '</small>' : ''}</button>`).join('')}</div>
-        <div class="addrow">
-          <div class="qty"><button onclick="setQty('${d.id}',-1)" aria-label="less">−</button><span>${p.qty}</span><button onclick="setQty('${d.id}',1)" aria-label="more">+</button></div>
-          <button class="btn" ${p.size ? '' : 'disabled'} onclick="addToBag('${d.id}')">${p.size ? 'Add ' + p.qty + ' · ' + money(each(p.garment, p.size) * p.qty) : 'Pick a size'}</button>
-        </div>
-      </div></div>`;
+    pick[d.id] = { garment: CFG.garments[0].id, color: CFG.colors[0].id, size: null, qty: 1 };
+    return `<article class="prod">
+      <div class="photo"><img id="img-${d.id}" width="1000" height="1000" alt=""></div>
+      <div class="opts"><h3>${esc(d.name)}</h3><p class="tag">“${esc(d.line)}”</p><div id="opt-${d.id}"></div></div>
+    </article>`;
   }).join('');
+  CFG.designs.forEach(d => renderOpts(d.id));
+  drawPay();
+  const pay = restore();
+  if (pay) document.querySelectorAll('input[name=pay]').forEach((el, i) => { if (el.value === pay) { el.checked = true; pickPay(i); } });
+  drawBag(); drawLast();
+  document.querySelector('.side').addEventListener('input', save);
 }
-function setColor(d, c) { pick[d].color = c; drawProducts(); }
-function setGar(d, g) { pick[d].garment = g; drawProducts(); }
-function setSize(d, s) { pick[d].size = s; drawProducts(); }
-function setQty(d, n) { pick[d].qty = Math.max(1, Math.min(25, pick[d].qty + n)); drawProducts(); }
-function addToBag(d) {
-  const p = pick[d];
-  const same = bag.find(b => b.design === d && b.garment === p.garment && b.color === p.color && b.size === p.size);
-  if (same) same.qty += p.qty; else bag.push({ design: d, garment: p.garment, color: p.color, size: p.size, qty: p.qty });
-  p.qty = 1; drawProducts(); drawBag();
-  const t = $('toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1400);
+
+/* Keeps an unfinished order on this device so people can leave and come back */
+const STORE = 'wcogic-shirt-order';
+let canSave = false;
+function save() {
+  try {
+    const pay = document.querySelector('input[name=pay]:checked');
+    localStorage.setItem(STORE, JSON.stringify({ t: Date.now(), bag, name: $('name').value, phone: $('phone').value, email: $('email').value, notes: $('notes').value, pay: pay ? pay.value : '' }));
+    canSave = true;
+  } catch (e) { canSave = false; }
+}
+function restore() {
+  try {
+    const d = JSON.parse(localStorage.getItem(STORE) || 'null');
+    if (!d || Date.now() - d.t > 30 * 864e5) return '';
+    (d.bag || []).forEach(b => {
+      if (CFG.designs.some(x => x.id === b.design) && gar(b.garment) && CFG.colors.some(x => x.id === b.color) && CFG.sizes.includes(b.size))
+        bag.push({ design: b.design, garment: b.garment, color: b.color, size: b.size, qty: Math.max(1, Math.min(25, parseInt(b.qty, 10) || 1)) });
+    });
+    ['name', 'phone', 'email', 'notes'].forEach(k => { if (d[k]) $(k).value = d[k]; });
+    return d.pay || '';
+  } catch (e) { return ''; }
+}
+
+function renderOpts(id) {
+  const d = CFG.designs.find(x => x.id === id), p = pick[id];
+  const col = CFG.colors.find(c => c.id === p.color), g = gar(p.garment);
+  const img = $('img-' + id), k = key(id, p.color, p.garment);
+  if (img.dataset.k !== k) {
+    img.dataset.k = k;
+    img.classList.add('swap');
+    img.onload = img.onerror = () => img.classList.remove('swap');
+    img.sizes = SIZES_ATTR;
+    img.srcset = `${src(k, 600)} 600w, ${src(k, 1000)} 1000w`;
+    img.src = src(k, 1000);
+    img.alt = `${d.name} ${g.name} in ${col.name}`;
+  }
+  const box = $('opt-' + id);
+  const had = box.contains(document.activeElement) ? document.activeElement.dataset.f : null;
+  const big = s => CFG.bigSizes.includes(s) && CFG.bigUpcharge;
+  box.innerHTML = `
+    <div class="lab">Style</div>
+    <div class="styles">${CFG.garments.map(x => `<button type="button" class="chip" data-f="g-${x.id}" aria-pressed="${x.id === p.garment}" onclick="setOpt('${id}','garment','${x.id}')"><b>${esc(x.name)}</b><span>$${x.price}</span></button>`).join('')}</div>
+    <div class="lab">Color <span>${esc(col.name)}</span></div>
+    <div class="swatches">${CFG.colors.map(c => `<button type="button" class="sw" data-f="c-${c.id}" style="--c:${esc(c.hex)}" aria-label="${esc(c.name)}" title="${esc(c.name)}" aria-pressed="${c.id === p.color}" onclick="setOpt('${id}','color','${c.id}')"></button>`).join('')}</div>
+    <div class="lab">Size <span>${p.size ? p.size + (big(p.size) ? ', adds $' + CFG.bigUpcharge : '') : 'Tap one'}</span></div>
+    <div class="sizes">${CFG.sizes.map(s => `<button type="button" class="sz" data-f="s-${s}" aria-pressed="${s === p.size}" onclick="setOpt('${id}','size','${s}')">${s}${big(s) ? '<small>+$' + CFG.bigUpcharge + '</small>' : ''}</button>`).join('')}</div>
+    <div class="buy">
+      <div class="qty"><button type="button" data-f="q-" aria-label="One fewer" onclick="setQty('${id}',-1)">−</button><output aria-label="Quantity">${p.qty}</output><button type="button" data-f="q+" aria-label="One more" onclick="setQty('${id}',1)">+</button></div>
+      <button type="button" class="add" data-f="add" ${p.size ? '' : 'disabled'} onclick="addToBag('${id}')">${p.size ? `<span>Add to order</span><span>${money(each(p.garment, p.size) * p.qty)}</span>` : '<span>Choose a size</span>'}</button>
+    </div>`;
+  if (had) { const el = box.querySelector(`[data-f="${had}"]`); if (el && !el.disabled) el.focus(); }
+}
+
+function preload(id) {
+  const p = pick[id];
+  CFG.colors.forEach(c => {
+    const k = key(id, c.id, p.garment);
+    if (c.id === p.color || !IMG[k]) return;
+    const im = new Image(); im.sizes = SIZES_ATTR; im.srcset = `${src(k, 600)} 600w, ${src(k, 1000)} 1000w`;
+  });
+}
+function setOpt(id, field, val) { pick[id][field] = val; renderOpts(id); if (field !== 'size') preload(id); }
+function setQty(id, n) { pick[id].qty = Math.max(1, Math.min(25, pick[id].qty + n)); renderOpts(id); }
+
+function addToBag(id) {
+  const p = pick[id];
+  const same = bag.find(b => b.design === id && b.garment === p.garment && b.color === p.color && b.size === p.size);
+  if (same) same.qty = Math.min(25, same.qty + p.qty);
+  else bag.push({ design: id, garment: p.garment, color: p.color, size: p.size, qty: p.qty });
+  p.qty = 1; renderOpts(id); drawBag(); $('err').textContent = '';
+  const t = $('toast'); t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 1500);
 }
 function removeItem(i) { bag.splice(i, 1); drawBag(); }
+function bagQty(i, n) { bag[i].qty = Math.max(1, Math.min(25, bag[i].qty + n)); drawBag(); }
+
 function drawBag() {
   const n = bag.reduce((s, b) => s + b.qty, 0), tot = bag.reduce((s, b) => s + each(b.garment, b.size) * b.qty, 0);
-  $('bagList').innerHTML = bag.length ? bag.map((b, i) => {
+  const list = $('bagList'), had = list.contains(document.activeElement) ? document.activeElement.dataset.f : null;
+  list.innerHTML = bag.length ? bag.map((b, i) => {
     const d = CFG.designs.find(x => x.id === b.design), c = CFG.colors.find(x => x.id === b.color);
-    return `<div class="item"><img src="${IMG[imgKey(b.design, b.color, b.garment)] || ''}" alt=""><div class="t"><b>${b.qty} × ${d.name} ${gar(b.garment).name}</b>${c.name} · ${b.size}</div><div>${money(each(b.garment, b.size) * b.qty)}</div><button class="rm" onclick="removeItem(${i})">Remove</button></div>`;
-  }).join('') : '<div class="empty">Nothing yet. Pick a style, color and size above, then tap Add.</div>';
+    return `<div class="item"><img src="${src(key(b.design, b.color, b.garment), 200)}" alt="">
+      <div><b>${esc(d.name)} ${esc(gar(b.garment).name)}</b><span class="sub">${esc(c.name)}, size ${b.size}</span>
+        <div class="mini"><button type="button" class="q" data-f="b${i}-" aria-label="One fewer" ${b.qty <= 1 ? 'disabled' : ''} onclick="bagQty(${i},-1)">−</button><output aria-label="Quantity">${b.qty}</output><button type="button" class="q" data-f="b${i}+" aria-label="One more" onclick="bagQty(${i},1)">+</button><button type="button" class="rm" onclick="removeItem(${i})">Remove</button></div></div>
+      <div class="amt">${money(each(b.garment, b.size) * b.qty)}</div></div>`;
+  }).join('') : '<p class="empty">Your order is empty. Pick a style, color and size, then tap Add to order.</p>';
+  if (had) { const el = list.querySelector(`[data-f="${had}"]`); if (el && !el.disabled) el.focus(); }
+  save();
+  $('saved').hidden = !(canSave && n > 0);
   $('bagTotal').textContent = money(tot);
-  $('stickyTxt').innerHTML = `<b>${n} item${n === 1 ? '' : 's'}</b> · ${money(tot)}`;
-  $('sticky').classList.toggle('show', n > 0);
+  $('barTxt').innerHTML = `<b>${money(tot)}</b> for ${n} item${n === 1 ? '' : 's'}`;
+  $('bar').classList.toggle('show', n > 0);
+  document.body.classList.toggle('hasbar', n > 0);
 }
+
 function drawPay() {
-  $('pay').innerHTML = CFG.payments.map((p, i) => `<label class="po" id="po${i}"><input type="radio" name="pay" value="${p.name}" onchange="document.querySelectorAll('.po').forEach(e=>e.classList.remove('on'));$('po${i}').classList.add('on')"><div><b>${p.name}</b><div class="how">${p.how}</div></div></label>`).join('');
+  $('pay').innerHTML = CFG.payments.map((p, i) => `<label class="pay" id="po${i}"><input type="radio" name="pay" value="${esc(p.name)}" onchange="pickPay(${i})"><b>${esc(p.name)}</b><p>${esc(p.how)}</p></label>`).join('');
 }
+function pickPay(i) { document.querySelectorAll('.pay').forEach((e, j) => e.classList.toggle('on', i === j)); }
+
 function submitOrder() {
   const pay = document.querySelector('input[name=pay]:checked');
   const o = { name: $('name').value.trim(), phone: $('phone').value.trim(), email: $('email').value.trim(), notes: $('notes').value.trim(), payment: pay ? pay.value : '', items: bag };
-  const miss = !bag.length ? 'Add at least one item first.' : !o.name ? 'Please enter your name.' : !o.phone ? 'Please enter your phone number.' : !o.payment ? 'Please choose how you will pay.' : '';
-  if (miss) { $('err').textContent = miss; return; }
-  $('err').textContent = ''; const b = $('submit'); b.disabled = true; b.textContent = 'Placing your order…';
-  const fail = m => { $('err').textContent = m || 'Something went wrong. Please try again.'; b.disabled = false; b.textContent = 'Place my order'; };
+  const miss = !bag.length ? 'Add at least one shirt to your order first.' : !o.name ? 'Enter your name.' : !o.phone ? 'Enter your phone number.' : !o.payment ? 'Choose how you will pay.' : '';
+  const err = $('err'), b = $('submit');
+  if (miss) { err.textContent = miss; err.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+  err.textContent = ''; b.disabled = true; b.textContent = 'Placing your order…';
+  const fail = m => { err.textContent = m || 'Your order did not go through. Check your connection, then tap Place my order again.'; b.disabled = false; b.textContent = 'Place my order'; };
   fetch(API, { method: 'POST', credentials: 'omit', body: JSON.stringify(o) })
-    .then(r => r.json()).then(d => d.ok ? showDone(d.result) : fail(d.error)).catch(() => fail());
+    .then(r => r.json()).then(d => { if (!d.ok) return fail(d.error); d.result.phone = o.phone; showDone(d.result); }).catch(() => fail());
 }
+
+const LASTKEY = 'wcogic-shirt-last';
+let LAST = null;
 function showDone(r) {
-  STATS = r.stats;
-  $('shop').style.display = 'none'; $('sticky').classList.remove('show');
-  const w = $('doneWrap'); w.style.display = 'block';
-  w.innerHTML = `<div class="done"><div class="eyebrow">Thank you! 🙏</div><h2 style="margin:6px 0">Your order is in</h2>
-    <div class="small">Your order number</div><div class="num">${r.id}</div>
-    <div style="margin:10px 0">${r.lines.map(l => `${l.qty} × ${l.design} ${l.item} · ${l.color} · ${l.size}`).join('<br>')}</div>
-    <div class="total" style="justify-content:center;gap:12px"><span>Total due</span><span>${money(r.total)}</span></div>
-    <div class="howbox"><b>How to pay: ${r.payment.name}</b><br>${r.payment.how}${r.payUrl ? `<a class="ppbtn" style="background:${r.payment.color || '#4A2C1D'};color:${r.payment.textColor || '#fff'}" href="${r.payUrl}" target="_blank" rel="noopener">Pay ${money(r.total)} with ${r.payment.name}</a>${r.payment.name === 'Venmo' ? '' : `<div class="small" style="margin-top:8px">In the note, type your order number: <b>${r.id}</b></div>`}` : ''}<br><br>Please pay by <b>${CFG.deadline}</b>. Your order is final once paid.</div>
-    <div class="small">Take a screenshot of this page for your records.</div>
-    <button class="btn" style="margin-top:16px;width:100%" onclick="location.reload()">Place another order</button></div>`;
-  window.scrollTo(0, 0);
+  LAST = r; bag.length = 0;
+  $('shop').hidden = true; $('bar').classList.remove('show'); document.body.classList.remove('hasbar'); $('last').hidden = true; $('toast').classList.remove('show');
+  try { localStorage.removeItem(STORE); localStorage.setItem(LASTKEY, JSON.stringify({ t: Date.now(), r })); } catch (e) {}
+  const p = r.payment, w = $('doneWrap');
+  const btn = r.payUrl ? `<a class="paybtn" style="background:${esc(p.color || '#3F1D10')};color:${esc(p.textColor || '#fff')}" href="${esc(r.payUrl)}" target="_blank" rel="noopener">Pay ${money(r.total)} with ${esc(p.name)}</a>${p.name === 'Venmo' ? '' : `<p class="small">In the payment note, type your order number: <b>${esc(r.id)}</b></p>`}` : '';
+  w.innerHTML = `<div class="done">
+    <h2>Thank you. Your order is in.</h2>
+    <div class="small">Your order number</div><div class="num">${esc(r.id)}</div>
+    <p class="lines">${r.lines.map(l => `${l.qty} × ${esc(l.design)} ${esc(l.item)}, ${esc(l.color)}, size ${esc(l.size)}`).join('<br>')}</p>
+    <div class="due"><span>Total due</span><span>${money(r.total)}</span></div>
+    <div class="howbox"><b>Pay with ${esc(p.name)}</b><p>${esc(p.how)}</p>${btn}<p>Pay by <b>${esc(CFG.deadline)}</b>. Your order is final once it is paid.</p></div>
+    <button type="button" class="again" id="chgBtn" onclick="showChange()">Change how I pay</button>
+    <div id="chg" hidden><div class="lab">Pick a different way to pay</div><div class="pays">${CFG.payments.filter(x => x.name !== p.name).map(x => `<button type="button" class="pay alt" onclick="changePay(this,'${esc(x.name)}')"><b>${esc(x.name)}</b></button>`).join('')}</div><div class="err" id="chgErr" role="alert"></div></div>
+    <div class="small" style="margin-top:18px">Take a screenshot of this page for your records.</div>
+    <button type="button" class="again" onclick="newOrder()">Place another order</button></div>`;
+  w.hidden = false; window.scrollTo(0, 0);
 }
+function showChange() { $('chg').hidden = false; $('chgBtn').hidden = true; }
+function changePay(b, name) {
+  const all = document.querySelectorAll('#chg button'), err = $('chgErr'), was = b.innerHTML;
+  all.forEach(x => x.disabled = true); err.textContent = ''; b.innerHTML = '<b>Changing…</b>';
+  const fail = m => { err.textContent = m || 'That did not go through. Check your connection and tap it again.'; all.forEach(x => x.disabled = false); b.innerHTML = was; };
+  fetch(API, { method: 'POST', credentials: 'omit', body: JSON.stringify({ action: 'changePayment', id: LAST.id, phone: LAST.phone, payment: name }) })
+    .then(r => r.json()).then(d => { if (!d.ok) return fail(d.error); LAST.payment = d.result.payment; LAST.payUrl = d.result.payUrl; showDone(LAST); }).catch(() => fail());
+}
+function newOrder() { $('doneWrap').hidden = true; $('shop').hidden = false; drawLast(); drawBag(); window.scrollTo(0, 0); }
+/* Lets someone come back later and find their order number and pay button */
+function drawLast() {
+  try {
+    const d = JSON.parse(localStorage.getItem(LASTKEY) || 'null');
+    if (!d || !d.r || Date.now() - d.t > 45 * 864e5) return;
+    LAST = d.r;
+    $('last').innerHTML = `You placed order <b>${esc(d.r.id)}</b> on this device. <button type="button" onclick="showDone(LAST)">See it or pay</button>`;
+    $('last').hidden = false;
+  } catch (e) {}
+}
+
 fetch(API + '?api=config', { credentials: 'omit' })
-  .then(r => r.json()).then(d => { CFG = d.cfg; IMG = d.img; STATS = d.stats; init(); })
-  .catch(() => { $('loading').innerHTML = 'Could not load the shirts. <a href="javascript:location.reload()">Try again</a>.'; });
+  .then(r => r.json()).then(d => { CFG = d.cfg; IMG = d.img; init(); })
+  .catch(() => { $('loading').innerHTML = 'The shirts did not load. Check your connection and try again.<br><button type="button" onclick="location.reload()">Reload the page</button>'; });
 </script>
 </body>
 </html>
