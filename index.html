@@ -37,14 +37,17 @@ button{cursor:pointer;-webkit-tap-highlight-color:transparent}
 h2{font:400 24px/1.15 var(--display);margin:26px 0 12px}
 
 /* Product */
-.prod{padding:0 0 28px;border-bottom:1px solid var(--line)}
-.prod + .prod{padding-top:8px}
-.prod:last-child{border-bottom:0}
-.photo{margin:0 -18px}
-.photo img{display:block;width:100%;height:auto;aspect-ratio:1;transition:opacity .18s}
-.photo img.swap{opacity:.3}
-.opts h3{font:400 36px/1 var(--display);margin:0}
-.tag{margin:6px 0 4px;color:var(--soft);font-style:italic}
+.pick{margin:-4px 0 12px;color:var(--soft)}
+#products{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;flex-direction:column;justify-content:flex-start;width:100%;padding:0;border:2px solid var(--line);border-radius:16px;background:var(--paper);overflow:hidden;text-align:left}
+.card img{display:block;width:100%;height:auto;aspect-ratio:1;background:var(--bg);transition:opacity .18s}
+.card img.swap{opacity:.3}
+.card .nm{display:block;font:400 22px/1.1 var(--display);padding:10px 12px 0}
+.card .tag{display:block;padding:3px 12px 12px;color:var(--soft);font-style:italic;font-size:14px;line-height:1.3}
+.card[aria-pressed=true]{border-color:var(--choc);box-shadow:0 0 0 1px var(--choc)}
+.opts{grid-column:1/-1}
+.opts.off{display:none}
+.for{margin:10px 0 0;font-size:18px}
 .lab{font-weight:700;font-size:15px;margin:18px 0 8px}
 .lab span{font-weight:400;color:var(--soft);margin-left:6px}
 .styles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -133,19 +136,17 @@ footer{color:var(--soft);font-size:15px;padding:30px 0 26px}
 .loading{padding:40px 0;color:var(--soft)}
 .loading button{margin-top:10px;border:1.5px solid var(--choc);border-radius:10px;background:none;padding:10px 16px;font-weight:700}
 
-@media (min-width:640px){
-  .prod,.prod + .prod{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:start;padding:22px 0 30px}
-  .prod:first-child{padding-top:4px}
-  .photo{margin:0}
-  .opts{padding-top:14px}
-}
-@media (min-width:960px){
+@media (min-width:760px){
   .top{padding:30px 0 26px}
-  .layout{display:grid;grid-template-columns:minmax(0,1fr) 392px;gap:48px;align-items:start}
-  .side{position:sticky;top:0;max-height:100vh;overflow:auto;padding-bottom:20px;scrollbar-width:thin}
-  .bar,.more{display:none}
-  body.hasbar{padding-bottom:0}
-  .opts h3{font-size:40px}
+  #products{gap:36px;row-gap:8px}
+  .opts,.opts.off{display:block;grid-column:auto}
+  .card{cursor:default}
+  .card[aria-pressed=true]{border-color:var(--line);box-shadow:none}
+  .card .nm{font-size:36px;padding:18px 22px 0}
+  .card .tag{font-size:17px;padding:4px 22px 20px}
+  .for,.pick{display:none}
+  .side{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;margin-top:18px}
+  .bar{padding-left:max(18px,calc(50vw - 572px));padding-right:max(18px,calc(50vw - 572px))}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -165,34 +166,39 @@ footer{color:var(--soft);font-size:15px;padding:30px 0 26px}
 <div class="wrap layout" id="shop">
   <main>
     <h2>1. Pick your shirts</h2>
+    <p class="pick">Tap a shirt, then choose your style, color and size.</p>
     <div id="products"><p class="loading" id="loading">Loading the shirts…</p></div>
   </main>
 
-  <aside class="side">
-    <h2 id="orderSec">2. Your order</h2>
-    <div class="panel">
-      <div id="bagList"></div>
-      <div class="total"><span>Total</span><span id="bagTotal">$0</span></div>
-      <p class="saved" id="saved" hidden>Saved on this device. You can close this page and finish later.</p>
-      <button type="button" class="more" id="more" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Add or change shirts</button>
-    </div>
+  <div class="side">
+    <section>
+      <h2 id="orderSec">2. Your order</h2>
+      <div class="panel">
+        <div id="bagList"></div>
+        <div class="total"><span>Total</span><span id="bagTotal">$0</span></div>
+        <p class="saved" id="saved" hidden>Saved on this device. You can close this page and finish later.</p>
+        <button type="button" class="more" id="more" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Add or change shirts</button>
+      </div>
+    </section>
 
-    <h2>3. Your info and payment</h2>
-    <div class="panel">
-      <label class="f" for="name">Full name</label>
-      <input id="name" type="text" autocomplete="name">
-      <label class="f" for="phone">Phone</label>
-      <input id="phone" type="tel" inputmode="tel" autocomplete="tel">
-      <label class="f" for="email">Email <span>Optional</span></label>
-      <input id="email" type="email" autocomplete="email">
-      <div class="lab">How will you pay?</div>
-      <div class="pays" id="pay"></div>
-      <label class="f" for="notes">Notes <span>Optional</span></label>
-      <textarea id="notes" rows="2" placeholder="Example: ordering for my grandson"></textarea>
-      <div class="err" id="err" role="alert"></div>
-      <button class="place" id="submit" type="button" onclick="submitOrder()">Place my order</button>
-    </div>
-  </aside>
+    <section>
+      <h2>3. Your info and payment</h2>
+      <div class="panel">
+        <label class="f" for="name">Full name</label>
+        <input id="name" type="text" autocomplete="name">
+        <label class="f" for="phone">Phone</label>
+        <input id="phone" type="tel" inputmode="tel" autocomplete="tel">
+        <label class="f" for="email">Email <span>Optional</span></label>
+        <input id="email" type="email" autocomplete="email">
+        <div class="lab">How will you pay?</div>
+        <div class="pays" id="pay"></div>
+        <label class="f" for="notes">Notes <span>Optional</span></label>
+        <textarea id="notes" rows="2" placeholder="Example: ordering for my grandson"></textarea>
+        <div class="err" id="err" role="alert"></div>
+        <button class="place" id="submit" type="button" onclick="submitOrder()">Place my order</button>
+      </div>
+    </section>
+  </div>
 </div>
 
 <div class="wrap" id="doneWrap" hidden></div>
@@ -215,24 +221,22 @@ const gar = id => CFG.garments.find(g => g.id === id);
 const each = (g, s) => gar(g).price + (CFG.bigSizes.includes(s) ? CFG.bigUpcharge : 0);
 const key = (d, c, g) => d + '_' + c + '_' + g;
 const src = (k, w) => IMG[k] ? IMG[k].replace(/=w\d+$/, '') + '=w' + w : '';
-const SIZES_ATTR = '(min-width:960px) 360px, (min-width:640px) 46vw, 100vw';
+const SIZES_ATTR = '(min-width:1180px) 550px, 48vw';
+let ACTIVE;
 
 function init() {
   if (IMG.group) { const hi = $('heroImg'); hi.sizes = '(min-width:1180px) 1144px, 100vw'; hi.srcset = `${src('group', 800)} 800w, ${src('group', 1600)} 1600w`; hi.src = src('group', 1600); $('hero').hidden = false; }
   $('facts').textContent = 'Order by ' + CFG.deadline + '. Pick up at church.';
-  $('foot').textContent = 'Questions? See ' + CFG.contact + '. ' + CFG.pickup;
+  $('foot').textContent = 'Questions? See ' + CFG.contact + '. ' + CFG.pickup.replace(/\s*\(about[^)]*\)/, '');
   if (CFG.closed) {
     $('facts').textContent = 'Orders are closed.';
     $('shop').innerHTML = `<div class="done"><h2>Orders are closed</h2><p>The last day to order was ${esc(CFG.deadline)}.</p><p class="small">Questions? See ${esc(CFG.contact)}.</p></div>`;
     drawLast(); return;
   }
-  $('products').innerHTML = CFG.designs.map(d => {
-    pick[d.id] = { garment: CFG.garments[0].id, color: CFG.colors[0].id, size: null, qty: 1 };
-    return `<article class="prod">
-      <div class="photo"><img id="img-${d.id}" width="1000" height="1000" alt=""></div>
-      <div class="opts"><h3>${esc(d.name)}</h3><p class="tag">“${esc(d.line)}”</p><div id="opt-${d.id}"></div></div>
-    </article>`;
-  }).join('');
+  CFG.designs.forEach(d => { pick[d.id] = { garment: CFG.garments[0].id, color: CFG.colors[0].id, size: null, qty: 1 }; });
+  $('products').innerHTML = CFG.designs.map(d => `<button type="button" class="card" id="card-${d.id}" onclick="setActive('${d.id}')"><img id="img-${d.id}" width="1000" height="1000" alt=""><span class="nm">${esc(d.name)}</span><span class="tag">“${esc(d.line)}”</span></button>`).join('')
+    + CFG.designs.map(d => `<div class="opts" id="opts-${d.id}"><p class="for">Options for <b>${esc(d.name)}</b></p><div id="opt-${d.id}"></div></div>`).join('');
+  setActive(CFG.designs[0].id);
   CFG.designs.forEach(d => renderOpts(d.id));
   drawPay();
   const pay = restore();
@@ -301,6 +305,10 @@ function preload(id) {
     if (c.id === p.color || !IMG[k]) return;
     const im = new Image(); im.sizes = SIZES_ATTR; im.srcset = `${src(k, 600)} 600w, ${src(k, 1000)} 1000w`;
   });
+}
+function setActive(id) {
+  ACTIVE = id;
+  CFG.designs.forEach(d => { $('card-' + d.id).setAttribute('aria-pressed', d.id === id); $('opts-' + d.id).classList.toggle('off', d.id !== id); });
 }
 function setOpt(id, field, val) { pick[id][field] = val; renderOpts(id); if (field !== 'size') preload(id); }
 function setQty(id, n) { pick[id].qty = Math.max(1, Math.min(25, pick[id].qty + n)); renderOpts(id); }
