@@ -167,7 +167,7 @@ footer{color:var(--soft);font-size:15px;padding:30px 0 26px}
 <header class="top"><div class="wrap">
   <h1>Whitehouse COGIC Shirt Sale</h1>
   <p id="facts"></p>
-  <p class="noextra">No extra shirts will be ordered.</p>
+  <p class="noextra">Payment is due when you order. No extra shirts will be ordered.</p>
 </div></header>
 
 <figure class="hero" id="hero" hidden><img id="heroImg" width="1600" height="900" alt="Church members wearing the Whitehouse and Emmanuel shirts, long sleeves, crewnecks and hoodies in cream, chocolate, sage and maroon"></figure>
@@ -205,7 +205,7 @@ footer{color:var(--soft);font-size:15px;padding:30px 0 26px}
         <div class="pays" id="pay"></div>
         <label class="f" for="notes">Notes <span>Optional</span></label>
         <textarea id="notes" rows="2" placeholder="Example: ordering for my grandson"></textarea>
-        <p class="saved"><b>No extra shirts will be ordered.</b> Order by the deadline to get yours.</p>
+        <p class="saved"><b>Payment is due when you place your order.</b> No extra shirts will be ordered, so order by the deadline to get yours.</p>
         <div class="err" id="err" role="alert"></div>
         <button class="place" id="submit" type="button" onclick="submitOrder()">Place my order</button>
       </div>
@@ -387,7 +387,7 @@ function showDone(r) {
     <div class="small">Your order number</div><div class="num">${esc(r.id)}</div>
     <p class="lines">${r.lines.map(l => `${l.qty} × ${esc(l.design)} ${esc(l.item)}, ${esc(l.color)}, ${esc(sizeName(l.size))}`).join('<br>')}</p>
     <div class="due"><span>Total due</span><span>${money(r.total)}</span></div>
-    <div class="howbox"><b>Pay with ${esc(p.name)}</b><p>${esc(p.how)}</p>${btn}<p>Pay by <b>${esc(CFG.deadline)}</b>. Your order is final once it is paid.</p></div>
+    <div class="howbox"><b>Pay with ${esc(p.name)}</b><p>${esc(p.how)}</p>${btn}<p><b>Payment is due now.</b> Your order is final once it is paid.</p></div>
     <button type="button" class="again" id="chgBtn" onclick="showChange()">Change how I pay</button>
     <div id="chg" hidden><div class="lab">Pick a different way to pay</div><div class="pays">${CFG.payments.filter(x => x.name !== p.name).map(x => `<button type="button" class="pay alt" onclick="changePay(this,'${esc(x.name)}')"><b>${esc(x.name)}</b></button>`).join('')}</div><div class="err" id="chgErr" role="alert"></div></div>
     <div class="small" style="margin-top:18px">Take a screenshot of this page for your records.</div>
